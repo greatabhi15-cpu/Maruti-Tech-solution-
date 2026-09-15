@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", "Manrope", sans-serif;
+  --font-serif-brand: "Cinzel", serif;
+  --font-body: "Inter", "Manrope", sans-serif;
+  --color-brand-forest: #103B28;
+  --color-brand-forest-dark: #0E3022;
+  --color-brand-forest-light: #1A543B;
+  --color-brand-vermilion: #D92716;
+  --color-brand-vermilion-hover: #C02011;
+  --color-brand-offwhite: #F7F6F0;
+  --color-brand-charcoal: #0E2319;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #F7F6F0;
+  color: #0E2319;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
