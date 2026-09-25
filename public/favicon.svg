@@ -1,7 +1,7 @@
 <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Left Wing Gradient -->
-    <linearGradient id="favLeftGrad" x1="60" y1="40" x2="128" y2="200" gradientUnits="userSpaceOnUse">
+    <linearGradient id="favLeftGrad2" x1="60" y1="40" x2="128" y2="200" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#1B633E" />
       <stop offset="35%" stop-color="#10432B" />
       <stop offset="70%" stop-color="#0A2C1C" />
@@ -9,7 +9,7 @@
     </linearGradient>
 
     <!-- Right Wing Gradient -->
-    <linearGradient id="favRightGrad" x1="196" y1="40" x2="128" y2="200" gradientUnits="userSpaceOnUse">
+    <linearGradient id="favRightGrad2" x1="196" y1="40" x2="128" y2="200" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#1B633E" />
       <stop offset="35%" stop-color="#10432B" />
       <stop offset="70%" stop-color="#0A2C1C" />
@@ -17,19 +17,19 @@
     </linearGradient>
 
     <!-- Top facet highlights -->
-    <linearGradient id="favLeftHigh" x1="75" y1="50" x2="110" y2="135" gradientUnits="userSpaceOnUse">
+    <linearGradient id="favLeftHigh2" x1="75" y1="50" x2="110" y2="135" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#2D8A58" stop-opacity="0.9" />
       <stop offset="60%" stop-color="#1E6B43" stop-opacity="0.4" />
       <stop offset="100%" stop-color="#0A2C1C" stop-opacity="0" />
     </linearGradient>
-    <linearGradient id="favRightHigh" x1="181" y1="50" x2="146" y2="135" gradientUnits="userSpaceOnUse">
+    <linearGradient id="favRightHigh2" x1="181" y1="50" x2="146" y2="135" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#2D8A58" stop-opacity="0.9" />
       <stop offset="60%" stop-color="#1E6B43" stop-opacity="0.4" />
       <stop offset="100%" stop-color="#0A2C1C" stop-opacity="0" />
     </linearGradient>
 
     <!-- Red Flame Gradient -->
-    <linearGradient id="favFlameGrad" x1="128" y1="35" x2="128" y2="160" gradientUnits="userSpaceOnUse">
+    <linearGradient id="favFlameGrad2" x1="128" y1="35" x2="128" y2="160" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#E52E1D" />
       <stop offset="60%" stop-color="#D92716" />
       <stop offset="100%" stop-color="#B81E10" />
@@ -45,23 +45,23 @@
     <!-- Left Wing Main -->
     <path
       d="M400 450 C382 432 355 408 335 372 C312 330 300 280 278 205 C260 262 250 315 264 365 C278 415 330 445 400 450 Z"
-      fill="url(#favLeftGrad)"
+      fill="url(#favLeftGrad2)"
     />
     <!-- Left Wing Highlight -->
     <path
       d="M400 450 C382 410 372 365 352 320 C332 275 304 235 278 205 C295 240 325 285 348 335 C368 380 382 420 400 450 Z"
-      fill="url(#favLeftHigh)"
+      fill="url(#favLeftHigh2)"
     />
 
     <!-- Right Wing Main -->
     <path
       d="M400 450 C418 432 445 408 465 372 C488 330 500 280 522 205 C540 262 550 315 536 365 C522 415 470 445 400 450 Z"
-      fill="url(#favRightGrad)"
+      fill="url(#favRightGrad2)"
     />
     <!-- Right Wing Highlight -->
     <path
       d="M400 450 C418 410 428 365 448 320 C468 275 496 235 522 205 C505 240 475 285 452 335 C432 380 418 420 400 450 Z"
-      fill="url(#favRightHigh)"
+      fill="url(#favRightHigh2)"
     />
 
     <!-- Connecting Base Apex -->
@@ -73,10 +73,10 @@
     <!-- Center Vertical Flame / Tilak -->
     <path
       d="M400 155 C394 220 385 280 384 315 C383 334 390 348 400 348 C410 348 417 334 416 315 C415 280 406 220 400 155 Z"
-      fill="url(#favFlameGrad)"
+      fill="url(#favFlameGrad2)"
     />
 
     <!-- Center Focal Dot (Bindi) -->
-    <circle cx="400" cy="370" r="18" fill="url(#favFlameGrad)" />
+    <circle cx="400" cy="370" r="18" fill="url(#favFlameGrad2)" />
   </g>
 </svg>

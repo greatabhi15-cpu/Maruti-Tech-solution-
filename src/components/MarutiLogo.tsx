@@ -1,144 +1,312 @@
-import React from 'react';
+import React, { useId } from 'react';
 
 interface MarutiLogoProps {
-  variant?: 'full' | 'horizontal' | 'mark-only' | 'compact';
-  theme?: 'dark' | 'light'; // 'dark' = for light bg (deep forest green logo), 'light' = for dark bg (white/red logo)
+  variant?: 'full' | 'horizontal' | 'mark-only' | 'compact' | 'image';
+  theme?: 'dark' | 'light'; // 'dark' = for light bg (forest green logo), 'light' = for dark bg (white/silver logo)
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
+/**
+ * MarutiMark renders the exact brand emblem from the official Maruti Tech Solution logo:
+ * - Dynamic aerodynamic dual-wing 'M' crest in deep forest green with dimensional lighting
+ * - Central vertical needle flame in brilliant vermilion red
+ * - Focal bindi dot in vermilion red
+ */
 export const MarutiMark: React.FC<{
   theme?: 'dark' | 'light';
   className?: string;
   size?: number;
-}> = ({ theme = 'dark', className = '', size = 48 }) => {
-  const wingColor = theme === 'light' ? '#FFFFFF' : '#103B28';
-  const redColor = '#D92716';
+}> = ({ theme = 'dark', className = '', size = 44 }) => {
+  const rawId = useId();
+  // Sanitize id for SVG url references
+  const id = rawId.replace(/[^a-zA-Z0-9_-]/g, '');
+
+  const isLight = theme === 'light';
 
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 100 100"
+      viewBox="0 0 300 300"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`shrink-0 ${className}`}
-      aria-label="Maruti Tech Solution Emblem"
+      className={`shrink-0 select-none ${className}`}
+      aria-label="Maruti Tech Solutions Emblem"
     >
-      {/* Left Wing of M */}
-      <path
-        d="M50 72.5C46.5 68 40.5 56 37 42C34.5 32 37.5 21 43.5 13C41 18 36.5 28 31 36C25.5 44 19 50 14 53C17 45 20 28 27.5 14C23 22 17.5 35 15.5 48C13.5 61 21 69 29.5 70C36 71 43.5 72.5 50 72.5Z"
-        fill={wingColor}
-      />
-      {/* Right Wing of M */}
-      <path
-        d="M50 72.5C53.5 68 59.5 56 63 42C65.5 32 62.5 21 56.5 13C59 18 63.5 28 69 36C74.5 44 81 50 86 53C83 45 80 28 72.5 14C77 22 82.5 35 84.5 48C86.5 61 79 69 70.5 70C64 71 56.5 72.5 50 72.5Z"
-        fill={wingColor}
-      />
-      {/* Lower Wing Bridge / Base Curve */}
-      <path
-        d="M28 71C35 74 42.5 75.5 50 75.5C57.5 75.5 65 74 72 71C66 73 58 74 50 74C42 74 34 73 28 71Z"
-        fill={wingColor}
-      />
-      {/* Center Tilak / Flame (Sharp top, teardrop bottom) */}
-      <path
-        d="M50 8C50 8 53.5 30 53.2 41C53 45 51.8 48 50 48C48.2 48 47 45 46.8 41C46.5 30 50 8 50 8Z"
-        fill={redColor}
-      />
-      {/* Center Dot (Bindi / Focal Point) */}
-      <circle cx="50" cy="56" r="3.6" fill={redColor} />
+      <defs>
+        {/* Left Wing Gradient */}
+        <linearGradient
+          id={`${id}-left-wing`}
+          x1="80"
+          y1="50"
+          x2="150"
+          y2="225"
+          gradientUnits="userSpaceOnUse"
+        >
+          {isLight ? (
+            <>
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="50%" stopColor="#E2EBE5" />
+              <stop offset="100%" stopColor="#BFD3C7" />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#1B633E" />
+              <stop offset="35%" stopColor="#10432B" />
+              <stop offset="70%" stopColor="#0A2C1C" />
+              <stop offset="100%" stopColor="#061F13" />
+            </>
+          )}
+        </linearGradient>
+
+        {/* Right Wing Gradient */}
+        <linearGradient
+          id={`${id}-right-wing`}
+          x1="220"
+          y1="50"
+          x2="150"
+          y2="225"
+          gradientUnits="userSpaceOnUse"
+        >
+          {isLight ? (
+            <>
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="50%" stopColor="#E2EBE5" />
+              <stop offset="100%" stopColor="#BFD3C7" />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#1B633E" />
+              <stop offset="35%" stopColor="#10432B" />
+              <stop offset="70%" stopColor="#0A2C1C" />
+              <stop offset="100%" stopColor="#061F13" />
+            </>
+          )}
+        </linearGradient>
+
+        {/* Left Wing Highlight Facet */}
+        <linearGradient
+          id={`${id}-left-high`}
+          x1="89"
+          y1="52"
+          x2="130"
+          y2="170"
+          gradientUnits="userSpaceOnUse"
+        >
+          {isLight ? (
+            <>
+              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#2D8A58" stopOpacity="0.9" />
+              <stop offset="50%" stopColor="#1E6B43" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#0A2C1C" stopOpacity="0" />
+            </>
+          )}
+        </linearGradient>
+
+        {/* Right Wing Highlight Facet */}
+        <linearGradient
+          id={`${id}-right-high`}
+          x1="211"
+          y1="52"
+          x2="170"
+          y2="170"
+          gradientUnits="userSpaceOnUse"
+        >
+          {isLight ? (
+            <>
+              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#2D8A58" stopOpacity="0.9" />
+              <stop offset="50%" stopColor="#1E6B43" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#0A2C1C" stopOpacity="0" />
+            </>
+          )}
+        </linearGradient>
+
+        {/* Vermilion Red Center Flame Gradient */}
+        <linearGradient
+          id={`${id}-flame`}
+          x1="150"
+          y1="28"
+          x2="150"
+          y2="175"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0%" stopColor="#E52E1D" />
+          <stop offset="60%" stopColor="#D92716" />
+          <stop offset="100%" stopColor="#B81E10" />
+        </linearGradient>
+      </defs>
+
+      {/* Emblem centered in 300x300 canvas (scaled 0.75 from 400x400) */}
+      <g transform="translate(150, 150) scale(0.72) translate(-400, -302)">
+        {/* Left Wing Main Body */}
+        <path
+          d="M400 450 C382 432 355 408 335 372 C312 330 300 280 278 205 C260 262 250 315 264 365 C278 415 330 445 400 450 Z"
+          fill={`url(#${id}-left-wing)`}
+        />
+        {/* Left Wing Top Highlight */}
+        <path
+          d="M400 450 C382 410 372 365 352 320 C332 275 304 235 278 205 C295 240 325 285 348 335 C368 380 382 420 400 450 Z"
+          fill={`url(#${id}-left-high)`}
+        />
+
+        {/* Right Wing Main Body */}
+        <path
+          d="M400 450 C418 432 445 408 465 372 C488 330 500 280 522 205 C540 262 550 315 536 365 C522 415 470 445 400 450 Z"
+          fill={`url(#${id}-right-wing)`}
+        />
+        {/* Right Wing Top Highlight */}
+        <path
+          d="M400 450 C418 410 428 365 448 320 C468 275 496 235 522 205 C505 240 475 285 452 335 C432 380 418 420 400 450 Z"
+          fill={`url(#${id}-right-high)`}
+        />
+
+        {/* Connecting Base Curve */}
+        <path
+          d="M375 444 C390 452 410 452 425 444 C415 448 385 448 375 444 Z"
+          fill={isLight ? '#FFFFFF' : '#0A2C1C'}
+        />
+
+        {/* Center Vertical Flame / Tilak */}
+        <path
+          d="M400 155 C394 220 385 280 384 315 C383 334 390 348 400 348 C410 348 417 334 416 315 C415 280 406 220 400 155 Z"
+          fill={`url(#${id}-flame)`}
+        />
+
+        {/* Center Focal Dot (Bindi) */}
+        <circle cx="400" cy="370" r="18" fill={`url(#${id}-flame)`} />
+      </g>
     </svg>
   );
 };
 
 export const MarutiLogo: React.FC<MarutiLogoProps> = ({
-  variant = 'full',
+  variant = 'horizontal',
   theme = 'dark',
   className = '',
   size = 'md',
 }) => {
   const isLight = theme === 'light';
-  const textColor = isLight ? 'text-white' : 'text-[#103B28]';
-  const subTextColor = isLight ? 'text-[#F7F6F0]/85' : 'text-[#103B28]/90';
-  const taglineColor = isLight ? 'text-[#F7F6F0]/70' : 'text-[#2C4A38]';
-  const ruleColor = isLight ? 'bg-white/40' : 'bg-[#103B28]/40';
+  const textColor = isLight ? 'text-white' : 'text-[#0A2C1C]';
+  const subTextColor = isLight ? 'text-[#F7F6F0]/90' : 'text-[#0E3824]';
+  const taglineColor = isLight ? 'text-[#F7F6F0]/70' : 'text-[#1B5E3C]';
 
+  // Standalone Mark
   if (variant === 'mark-only') {
     const markSizes = { sm: 32, md: 44, lg: 64, xl: 88 };
     return <MarutiMark theme={theme} size={markSizes[size]} className={className} />;
   }
 
-  if (variant === 'horizontal') {
+  // Full Image SVG Asset
+  if (variant === 'image') {
+    const imgHeights = { sm: 'h-10', md: 'h-14', lg: 'h-20', xl: 'h-28' };
     return (
-      <div className={`flex items-center gap-3.5 select-none ${className}`}>
-        <MarutiMark theme={theme} size={size === 'sm' ? 36 : size === 'lg' ? 52 : 44} />
-        <div className="flex flex-col">
-          <div className="flex items-baseline gap-1.5">
-            <span
-              className={`text-xl md:text-2xl font-extrabold tracking-tight ${textColor}`}
-              style={{ fontFamily: "'Cinzel', serif" }}
-            >
-              MARUTI
-            </span>
-            <span className={`text-[11px] md:text-xs font-semibold tracking-widest uppercase ${subTextColor}`}>
-              TECH SOLUTION
-            </span>
-          </div>
-          <span className={`text-[10px] md:text-[11px] font-medium tracking-wider -mt-0.5 ${taglineColor}`}>
-            Solution for Your IT Issue
-          </span>
-        </div>
-      </div>
+      <img
+        src="/maruti-logo.svg"
+        alt="Maruti Tech Solutions Logo"
+        referrerPolicy="no-referrer"
+        className={`${imgHeights[size]} w-auto object-contain select-none ${className}`}
+      />
     );
   }
 
-  if (variant === 'compact') {
+  // Horizontal Layout (Standard for Header / Navbar)
+  if (variant === 'horizontal') {
+    const markSize = size === 'sm' ? 42 : size === 'lg' ? 56 : 48;
     return (
-      <div className={`flex items-center gap-2.5 select-none ${className}`}>
-        <MarutiMark theme={theme} size={36} />
-        <div className="flex flex-col">
+      <div className={`flex items-center gap-3 select-none text-left ${className}`}>
+        <MarutiMark theme={theme} size={markSize} />
+        <div className="flex flex-col justify-center">
+          {/* Main Brand Title: MARUTI */}
           <span
-            className={`text-lg font-bold tracking-tight leading-none ${textColor}`}
-            style={{ fontFamily: "'Cinzel', serif" }}
+            className={`text-xl sm:text-2xl font-bold tracking-wider leading-none ${textColor}`}
+            style={{ fontFamily: "'Cinzel', 'Marcellus', 'Times New Roman', serif" }}
           >
             MARUTI
           </span>
-          <span className={`text-[9px] font-semibold tracking-widest uppercase leading-tight ${subTextColor}`}>
-            TECH SOLUTION
+
+          {/* Sub Brand: TECH SOLUTIONS */}
+          <span
+            className={`text-[10px] sm:text-[11px] font-bold tracking-[0.24em] uppercase mt-1 leading-tight ${subTextColor}`}
+            style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
+          >
+            TECH SOLUTIONS
+          </span>
+
+          {/* Official Tagline: Solution for Your All IT Issues */}
+          <span
+            className={`text-[9.5px] sm:text-[10px] font-medium tracking-wide mt-0.5 leading-tight ${taglineColor}`}
+            style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
+          >
+            Solution for Your All IT Issues
           </span>
         </div>
       </div>
     );
   }
 
-  // Full Stacked Logo (Exact representation of uploaded brand asset)
+  // Compact Layout for tight spaces
+  if (variant === 'compact') {
+    return (
+      <div className={`flex items-center gap-2.5 select-none text-left ${className}`}>
+        <MarutiMark theme={theme} size={36} />
+        <div className="flex flex-col">
+          <span
+            className={`text-lg font-bold tracking-wider leading-none ${textColor}`}
+            style={{ fontFamily: "'Cinzel', 'Marcellus', serif" }}
+          >
+            MARUTI
+          </span>
+          <span
+            className={`text-[9px] font-bold tracking-[0.22em] uppercase mt-0.5 leading-tight ${subTextColor}`}
+          >
+            TECH SOLUTIONS
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  // Full Stacked Layout (Identical to uploaded square graphic)
   return (
     <div className={`inline-flex flex-col items-center text-center select-none ${className}`}>
-      <MarutiMark theme={theme} size={size === 'sm' ? 48 : size === 'lg' ? 80 : size === 'xl' ? 104 : 64} />
-      
+      <MarutiMark
+        theme={theme}
+        size={size === 'sm' ? 56 : size === 'lg' ? 96 : size === 'xl' ? 120 : 76}
+      />
+
       {/* MARUTI */}
-      <h1
-        className={`text-2xl md:text-3xl font-extrabold tracking-wide mt-1.5 ${textColor}`}
-        style={{ fontFamily: "'Cinzel', serif", letterSpacing: '0.08em' }}
+      <div
+        className={`text-2xl sm:text-3xl font-bold tracking-[0.08em] mt-2.5 leading-tight ${textColor}`}
+        style={{ fontFamily: "'Cinzel', 'Marcellus', serif" }}
       >
         MARUTI
-      </h1>
-
-      {/* — TECH SOLUTION — */}
-      <div className="flex items-center justify-center gap-2 mt-1 w-full max-w-[200px]">
-        <div className={`h-[1px] flex-1 ${ruleColor}`} />
-        <span
-          className={`text-[10px] md:text-xs font-bold tracking-[0.22em] uppercase ${subTextColor}`}
-        >
-          TECH SOLUTION
-        </span>
-        <div className={`h-[1px] flex-1 ${ruleColor}`} />
       </div>
 
-      {/* Tagline: Solution for Your IT Issue */}
-      <p className={`text-[11px] md:text-xs font-medium tracking-wider mt-1 ${taglineColor}`}>
-        Solution for Your IT Issue
-      </p>
+      {/* TECH SOLUTIONS */}
+      <div
+        className={`text-xs sm:text-sm font-bold tracking-[0.26em] uppercase mt-1 leading-tight ${subTextColor}`}
+        style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
+      >
+        TECH SOLUTIONS
+      </div>
+
+      {/* Solution for Your All IT Issues */}
+      <div
+        className={`text-xs sm:text-[13px] font-medium tracking-wide mt-1.5 leading-tight ${taglineColor}`}
+        style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
+      >
+        Solution for Your All IT Issues
+      </div>
     </div>
   );
 };

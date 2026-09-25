@@ -1,0 +1,121 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Left Wing Gradient: Deep forest green to vibrant emerald ribbon highlight -->
+    <linearGradient id="marutiLeftWingGrad" x1="260" y1="200" x2="400" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1B633E" />
+      <stop offset="35%" stop-color="#10432B" />
+      <stop offset="70%" stop-color="#0A2C1C" />
+      <stop offset="100%" stop-color="#061F13" />
+    </linearGradient>
+
+    <!-- Right Wing Gradient: Deep forest green to vibrant emerald ribbon highlight -->
+    <linearGradient id="marutiRightWingGrad" x1="540" y1="200" x2="400" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1B633E" />
+      <stop offset="35%" stop-color="#10432B" />
+      <stop offset="70%" stop-color="#0A2C1C" />
+      <stop offset="100%" stop-color="#061F13" />
+    </linearGradient>
+
+    <!-- Top facet highlight for Left Wing (dimensional fold) -->
+    <linearGradient id="marutiLeftHighlight" x1="278" y1="205" x2="360" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2D8A58" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#1E6B43" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#0A2C1C" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Top facet highlight for Right Wing (dimensional fold) -->
+    <linearGradient id="marutiRightHighlight" x1="522" y1="205" x2="440" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2D8A58" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#1E6B43" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#0A2C1C" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Red Center Element Gradient: Brilliant vermilion saffron red -->
+    <linearGradient id="marutiRedFlameGrad" x1="400" y1="155" x2="400" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E52E1D" />
+      <stop offset="60%" stop-color="#D92716" />
+      <stop offset="100%" stop-color="#B81E10" />
+    </linearGradient>
+  </defs>
+
+  <!-- ==========================================
+       MARUTI EMBLEM (WINGS + TILAK + DOT)
+       ========================================== -->
+  <g id="maruti-emblem">
+    <!-- Left Wing Main Silhouette -->
+    <path
+      d="M400 450 C382 432 355 408 335 372 C312 330 300 280 278 205 C260 262 250 315 264 365 C278 415 330 445 400 450 Z"
+      fill="url(#marutiLeftWingGrad)"
+    />
+    <!-- Left Wing Inner Volume/Body -->
+    <path
+      d="M400 450 C382 410 372 365 352 320 C332 275 304 235 278 205 C295 240 325 285 348 335 C368 380 382 420 400 450 Z"
+      fill="url(#marutiLeftHighlight)"
+    />
+
+    <!-- Right Wing Main Silhouette -->
+    <path
+      d="M400 450 C418 432 445 408 465 372 C488 330 500 280 522 205 C540 262 550 315 536 365 C522 415 470 445 400 450 Z"
+      fill="url(#marutiRightWingGrad)"
+    />
+    <!-- Right Wing Inner Volume/Body -->
+    <path
+      d="M400 450 C418 410 428 365 448 320 C468 275 496 235 522 205 C505 240 475 285 452 335 C432 380 418 420 400 450 Z"
+      fill="url(#marutiRightHighlight)"
+    />
+
+    <!-- Wing Base Connecting Apex -->
+    <path
+      d="M375 444 C390 452 410 452 425 444 C415 448 385 448 375 444 Z"
+      fill="#0A2C1C"
+    />
+
+    <!-- Center Vertical Flame / Tilak (Sharp Needle Top, Teardrop Base) -->
+    <path
+      d="M400 155 C394 220 385 280 384 315 C383 334 390 348 400 348 C410 348 417 334 416 315 C415 280 406 220 400 155 Z"
+      fill="url(#marutiRedFlameGrad)"
+    />
+
+    <!-- Center Focal Dot (Bindi) -->
+    <circle cx="400" cy="370" r="18" fill="url(#marutiRedFlameGrad)" />
+  </g>
+
+  <!-- ==========================================
+       BRAND TYPOGRAPHY
+       ========================================== -->
+  <!-- MARUTI -->
+  <text
+    x="400"
+    y="545"
+    text-anchor="middle"
+    fill="#0A2C1C"
+    font-family="'Cinzel', 'Marcellus', 'Times New Roman', serif"
+    font-size="70"
+    font-weight="700"
+    letter-spacing="0.08em"
+  >MARUTI</text>
+
+  <!-- TECH SOLUTIONS -->
+  <text
+    x="400"
+    y="605"
+    text-anchor="middle"
+    fill="#0A2C1C"
+    font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif"
+    font-size="28"
+    font-weight="600"
+    letter-spacing="0.28em"
+  >TECH SOLUTIONS</text>
+
+  <!-- Solution for Your All IT Issues -->
+  <text
+    x="400"
+    y="652"
+    text-anchor="middle"
+    fill="#0E3824"
+    font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif"
+    font-size="20"
+    font-weight="500"
+    letter-spacing="0.05em"
+  >Solution for Your All IT Issues</text>
+</svg>

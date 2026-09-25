@@ -4,7 +4,6 @@ import {
   COMPANY_DETAILS,
   HOME_SERVICES,
   TRUST_PILLARS,
-  PROCESS_STEPS,
 } from '../data/content';
 import { MarutiLogo } from '../components/MarutiLogo';
 import { TechGraphic } from '../components/TechGraphic';
@@ -58,8 +57,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         id="hero-section"
         className="relative overflow-hidden bg-[#F7F6F0] pt-10 pb-20 md:pt-16 md:pb-28 border-b border-[#103B28]/10"
       >
-        <TechGraphic theme="dark" />
-
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Content Column */}
@@ -368,67 +365,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
       {/* ==================================================
           HOME — SECTION 5
-          HOW WE HELP (4-step horizontal process)
-          ================================================== */}
-      <section
-        id="how-we-help-section"
-        className="py-20 md:py-28 bg-[#F7F6F0] border-b border-[#103B28]/10 relative overflow-hidden"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#103B28]/10 text-xs font-bold uppercase tracking-widest text-[#103B28]">
-              Seamless Workflow
-            </div>
-            <h2
-              className="text-3xl sm:text-4xl font-extrabold text-[#0E2319] tracking-tight"
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-            >
-              How We Help
-            </h2>
-            <p className="text-sm sm:text-base text-[#0E2319]/75">
-              A transparent, step-by-step resolution path with zero guesswork.
-            </p>
-          </div>
-
-          {/* 4-Step Process */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-            {PROCESS_STEPS.map((step, idx) => (
-              <div
-                key={step.step}
-                id={`process-step-${step.step}`}
-                className="bg-white rounded-2xl p-7 border border-[#103B28]/12 shadow-xs text-left relative flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#103B28] text-white flex items-center justify-center text-sm font-black mb-5 shadow-xs">
-                    {step.step}
-                  </div>
-                  <h3 className="text-base font-bold text-[#0E2319] mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#0E2319]/75 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-[#103B28]/8 text-[11px] font-semibold text-[#103B28] uppercase tracking-wider">
-                  Step {idx + 1} of 4
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================================================
-          HOME — SECTION 6
           SERVICE PROMISE
           ================================================== */}
       <section
         id="service-promise-section"
-        className="py-20 md:py-28 bg-white border-b border-[#103B28]/10"
+        className="py-20 md:py-28 bg-[#F7F6F0] border-b border-[#103B28]/10"
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-7">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#103B28]/8 text-xs font-bold uppercase tracking-widest text-[#103B28]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#103B28]/10 text-xs font-bold uppercase tracking-widest text-[#103B28] shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-[#D92716]" />
             <span>Our Service Promise</span>
           </div>
@@ -460,7 +404,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       </section>
 
       {/* ==================================================
-          HOME — SECTION 7
+          HOME — SECTION 6
           FINAL CTA (Dark Green Background)
           ================================================== */}
       <section
