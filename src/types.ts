@@ -47,3 +47,8 @@ export interface ContactFormData {
   service: string;
   issue: string;
 }
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}

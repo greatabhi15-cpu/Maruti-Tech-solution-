@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PageId } from '../types';
-import { SERVICE_CATEGORIES } from '../data/content';
+import { SERVICE_CATEGORIES, SERVICES_FAQS } from '../data/content';
 import { TechGraphic } from '../components/TechGraphic';
 import {
   Laptop,
@@ -9,10 +9,16 @@ import {
   ShieldCheck,
   Network,
   HardDrive,
+  Headphones,
+  Boxes,
+  RefreshCw,
+  Award,
   ArrowRight,
   Check,
   Phone,
   MessageCircle,
+  ChevronDown,
+  HelpCircle,
 } from 'lucide-react';
 
 interface ServicesPageProps {
@@ -21,6 +27,11 @@ interface ServicesPageProps {
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq((prev) => (prev === index ? null : index));
+  };
 
   const categoryIcons: Record<string, React.ReactNode> = {
     'computer-repair': <Laptop className="w-5 h-5" />,
@@ -29,6 +40,27 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
     security: <ShieldCheck className="w-5 h-5" />,
     networking: <Network className="w-5 h-5" />,
     'it-products': <HardDrive className="w-5 h-5" />,
+    'remote-support': <Headphones className="w-5 h-5" />,
+    'custom-builds': <Boxes className="w-5 h-5" />,
+    refurbished: <RefreshCw className="w-5 h-5" />,
+    'warranty-support': <Award className="w-5 h-5" />,
+  };
+
+  const getCategoryMeta = (categoryId: string) => {
+    switch (categoryId) {
+      case 'remote-support':
+        return { tag: 'Secure Remote', action: 'Inquire Now →' };
+      case 'custom-builds':
+        return { tag: 'Precision Build', action: 'Inquire Now →' };
+      case 'refurbished':
+        return { tag: 'Certified Product', action: 'Inquire Now →' };
+      case 'warranty-support':
+        return { tag: 'Official Policy', action: 'Inquire Now →' };
+      case 'it-products':
+        return { tag: 'Verified Product', action: 'Inquire Now →' };
+      default:
+        return { tag: 'Verified Repair', action: 'Book Diagnostic →' };
+    }
   };
 
   const filteredCategories =
@@ -168,14 +200,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                     <div className="mt-5 pt-4 border-t border-[#103B28]/8 flex items-center justify-between text-xs">
                       <span className="inline-flex items-center gap-1 font-semibold text-[#103B28]">
                         <Check className="w-3.5 h-3.5 text-[#103B28]" />
-                        <span>Verified Repair</span>
+                        <span>{getCategoryMeta(category.id).tag}</span>
                       </span>
 
                       <button
                         onClick={() => onNavigate('contact')}
                         className="text-[11px] font-bold uppercase tracking-wider text-[#D92716] hover:underline"
                       >
-                        Book Diagnostic →
+                        {getCategoryMeta(category.id).action}
                       </button>
                     </div>
                   </div>
@@ -183,6 +215,106 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ==================================================
+          SERVICES — FREQUENTLY ASKED QUESTIONS (Accordion)
+          ================================================== */}
+      <section
+        id="services-faq"
+        className="py-16 md:py-24 bg-white border-b border-[#103B28]/10"
+      >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center space-y-4 mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F7F6F0] border border-[#103B28]/15 shadow-2xs">
+              <HelpCircle className="w-3.5 h-3.5 text-[#D92716]" />
+              <span className="text-xs font-bold uppercase tracking-widest text-[#103B28]">
+                SUPPORT &amp; COVERAGE CLARITY
+              </span>
+            </div>
+
+            <h2
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0E2319] tracking-tight"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+            >
+              Frequently Asked Questions
+            </h2>
+
+            <p className="text-base sm:text-lg text-[#0E2319]/75 max-w-2xl mx-auto font-normal">
+              Find answers to common questions about our IT services, repairs, support, and warranty coverage.
+            </p>
+          </div>
+
+          {/* Accordion List */}
+          <div className="space-y-4">
+            {SERVICES_FAQS.map((faq, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div
+                  key={faq.question}
+                  className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                    isOpen
+                      ? 'bg-[#F7F6F0]/70 border-[#103B28]/30 shadow-xs'
+                      : 'bg-white border-[#103B28]/12 hover:border-[#103B28]/25 hover:bg-[#F7F6F0]/30'
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => toggleFaq(index)}
+                    aria-expanded={isOpen}
+                    className="w-full py-5 px-6 sm:px-7 text-left flex items-center justify-between gap-4 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#103B28] transition-colors cursor-pointer"
+                  >
+                    <span
+                      className={`text-base sm:text-lg font-bold tracking-tight transition-colors ${
+                        isOpen ? 'text-[#103B28]' : 'text-[#0E2319]'
+                      }`}
+                    >
+                      {faq.question}
+                    </span>
+
+                    <span
+                      className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${
+                        isOpen
+                          ? 'bg-[#103B28] text-white rotate-180'
+                          : 'bg-[#103B28]/8 text-[#103B28] rotate-0'
+                      }`}
+                    >
+                      <ChevronDown className="w-4 h-4 transition-transform duration-300" />
+                    </span>
+                  </button>
+
+                  <div
+                    className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out ${
+                      isOpen
+                        ? 'grid-rows-[1fr] opacity-100'
+                        : 'grid-rows-[0fr] opacity-0'
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-6 sm:px-7 pb-5 pt-1 text-sm sm:text-base text-[#0E2319]/80 leading-relaxed font-normal border-t border-[#103B28]/8">
+                        {faq.answer}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Quick Help Callout inside FAQ */}
+          <div className="mt-10 p-5 rounded-2xl bg-[#F7F6F0] border border-[#103B28]/12 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div className="text-xs sm:text-sm text-[#0E2319]/80">
+              <span className="font-semibold text-[#0E2319]">Have a question not listed here?</span> Our technicians are available Monday through Saturday.
+            </div>
+            <button
+              onClick={() => onNavigate('contact')}
+              className="shrink-0 text-xs font-bold uppercase tracking-wider text-[#103B28] hover:text-[#0E3022] hover:underline cursor-pointer"
+            >
+              Ask an Engineer →
+            </button>
+          </div>
         </div>
       </section>
 

@@ -321,6 +321,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                             <option value="Virus & Malware Removal">Virus &amp; Malware Removal</option>
                             <option value="Wired & Wireless Networking">Wired &amp; Wireless Networking</option>
                             <option value="IT Products & Accessories">IT Products &amp; Accessories</option>
+                            <option value="Remote / Virtual Support">Remote / Virtual Support</option>
+                            <option value="Custom Build Systems (Gaming / Workstations)">Custom Build Systems (Gaming / Workstations)</option>
+                            <option value="Refurbished Laptops & Desktops">Refurbished Laptops &amp; Desktops</option>
+                            <option value="Warranty & Support Inquiry">Warranty &amp; Support Inquiry</option>
                             <option value="Other Technical Issue">Other Technical Issue</option>
                           </select>
                         </div>

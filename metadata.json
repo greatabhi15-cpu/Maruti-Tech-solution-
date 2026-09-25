@@ -1,6 +1,8 @@
 {
   "name": "Maruti Tech Solution",
   "description": "Maruti Tech Solution provides reliable computer repair, laptop and desktop support, hardware upgrades, software installation, malware removal and networking solutions in Mumbai.",
+  "icon": "/logo.png",
+  "image": "/logo.png",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -4,6 +4,7 @@ import {
   TrustPillar,
   ProcessStep,
   QuickFixComparison,
+  FAQItem,
 } from '../types';
 
 export const COMPANY_DETAILS = {
@@ -11,7 +12,7 @@ export const COMPANY_DETAILS = {
   tagline: 'Solution for Your IT Issue',
   phone: '+91 8097975434',
   phoneClean: '918097975434',
-  email: 'gauravinfotech5@gmail.com',
+  email: 'Marutitechsolutions@gmail.com',
   address: {
     line1: 'Akurli Road, Hanuman Nagar',
     line2: 'Mumbai, Maharashtra – 400101',
@@ -323,6 +324,128 @@ export const SERVICE_CATEGORIES: ServiceCategory[] = [
       },
     ],
   },
+  {
+    id: 'remote-support',
+    name: 'REMOTE / VIRTUAL SUPPORT',
+    description:
+      'Fast and secure remote assistance for software, system, and network issues.',
+    items: [
+      {
+        title: 'Remote Troubleshooting',
+        details:
+          'Live encrypted screen-share diagnosis to rapidly isolate and fix OS errors, application crashes, background freezes, and peripheral communication faults without an on-site visit.',
+        badge: 'Instant Connect',
+      },
+      {
+        title: 'Software Installation',
+        details:
+          'Remote deployment and validation of business software, Microsoft 365, accounting suites (Tally, Zoho), graphic tools, and official utility drivers tailored to your system specs.',
+      },
+      {
+        title: 'Email Setup & Configuration',
+        details:
+          'Enterprise and business email client configuration across Outlook, Google Workspace, IMAP/Exchange, SMTP security certificates, spam rules, and legacy PST/OST mailbox migration.',
+      },
+      {
+        title: 'Printer Setup & Support',
+        details:
+          'Network and wireless printer discovery, driver installation, print spooler queue clearing, scanner utility configuration, and multi-PC office printing setup.',
+      },
+      {
+        title: 'System Optimization',
+        details:
+          'Deep digital cleanup targeting unnecessary startup processes, background registry overhead, temporary cache buildup, and thermal throttling to restore peak operating responsiveness.',
+        badge: 'Speed Boost',
+      },
+    ],
+  },
+  {
+    id: 'custom-builds',
+    name: 'CUSTOM BUILD SYSTEMS',
+    description:
+      'Professionally assembled systems tailored to specific performance and business requirements.',
+    items: [
+      {
+        title: 'Gaming PCs',
+        details:
+          'High-FPS, enthusiast gaming rigs featuring latest-gen NVIDIA RTX & AMD Radeon GPUs, calibrated liquid cooling loops, high-airflow mesh chassis, and meticulous cable routing.',
+        badge: 'Enthusiast Grade',
+      },
+      {
+        title: 'Office Workstations',
+        details:
+          'Compact, whisper-quiet, and energy-conscious desktop setups engineered for reliable 8+ hour business operations, spreadsheets, accounting software, and multi-display productivity.',
+      },
+      {
+        title: 'Video Editing Systems',
+        details:
+          'Heavy-duty rendering powerhouses tuned for Adobe Premiere Pro, DaVinci Resolve, 4K/8K timelines, ultra-fast PCIe Gen4/Gen5 NVMe scratch disks, and 64GB+ high-frequency RAM.',
+        badge: 'Creative Pro',
+      },
+      {
+        title: 'Business & Enterprise PCs',
+        details:
+          'Commercial workstations equipped with ECC memory support, dual-LAN failover, hardware RAID arrays, and commercial motherboard designs for uninterrupted continuous business uptime.',
+        badge: 'Enterprise Rigor',
+      },
+    ],
+  },
+  {
+    id: 'refurbished',
+    name: 'REFURBISHED PRODUCTS',
+    description:
+      'Quality-tested and certified refurbished devices with reliable performance.',
+    items: [
+      {
+        title: 'Refurbished Laptops',
+        details:
+          'Grade-A corporate-grade laptops from Dell Latitude, Lenovo ThinkPad, and HP EliteBook—exhaustively inspected, fitted with brand-new high-speed SSDs, and battery health certified.',
+        badge: 'Certified Grade-A',
+      },
+      {
+        title: 'Refurbished Desktops',
+        details:
+          'Commercial small-form-factor (SFF) and tower desktops stress-tested for heat dissipation and memory stability, offering premium business performance at a fraction of new retail cost.',
+        badge: 'Best Value',
+      },
+      {
+        title: 'Refurbished Workstations',
+        details:
+          'Industrial-grade workstation towers (Dell Precision, HP Z-Series) powered by Intel Xeon / Core i7/i9 processors and professional Quadro/Radeon Pro graphics for CAD and 3D modeling.',
+        badge: 'Heavy Duty',
+      },
+    ],
+  },
+  {
+    id: 'warranty-support',
+    name: 'WARRANTY & SUPPORT',
+    description:
+      'Transparent warranty coverage and dependable after-sales support.',
+    items: [
+      {
+        title: 'Product Warranty',
+        details:
+          'Manufacturer and dealer-backed hardware warranty on all newly supplied IT components, adapters, batteries, RAM, and SSDs with streamlined hassle-free claim facilitation.',
+        badge: 'Authentic Coverage',
+      },
+      {
+        title: 'Repair Warranty',
+        details:
+          'Dedicated post-service guarantee covering bench-repaired motherboards, power ICs, chip-level rework, and display panels, giving complete peace of mind on technical labor.',
+        badge: 'Service Backed',
+      },
+      {
+        title: 'Warranty Criteria',
+        details:
+          'Clear, upfront criteria specifying warranty validity, intact tamper-evident serial labels, electrical surge protection recommendations, and non-covered physical/liquid damage boundaries.',
+      },
+      {
+        title: 'Service Terms & Conditions',
+        details:
+          'Documented customer service agreements specifying diagnostic protocols, quotation sign-offs, data confidentiality protections, and guaranteed equipment handover timelines.',
+      },
+    ],
+  },
 ];
 
 export const COMPARISON_POINTS: QuickFixComparison[] = [
@@ -375,3 +498,37 @@ export const WHO_WE_HELP = [
     desc: 'Neighbourhood shops, billing counters, and commercial setups across Mumbai needing prompt hands-on assistance.',
   },
 ];
+
+export const SERVICES_FAQS: FAQItem[] = [
+  {
+    question: 'Do you provide onsite and remote IT support?',
+    answer:
+      'Yes. We offer both onsite and remote support services for homes, offices, and businesses. Our team can assist with troubleshooting, software issues, network problems, and system optimization either remotely or at your location.',
+  },
+  {
+    question: 'How long does a typical repair take?',
+    answer:
+      'Most software-related issues can be resolved within a few hours, while hardware repairs typically take 1–3 business days depending on the issue and parts availability.',
+  },
+  {
+    question: 'Do your services include warranty coverage?',
+    answer:
+      'Yes. Eligible repairs and products include warranty coverage. Warranty terms vary based on the service or product provided and will be clearly explained before completion.',
+  },
+  {
+    question: 'Can you help with custom-built computers and workstations?',
+    answer:
+      'Absolutely. We design and build custom systems for gaming, business, content creation, engineering, and other specialized requirements.',
+  },
+  {
+    question: 'Do you sell refurbished laptops and desktops?',
+    answer:
+      'Yes. We offer professionally tested and quality-checked refurbished laptops, desktops, and workstations that deliver reliable performance at affordable prices.',
+  },
+  {
+    question: 'How can I request support or get a quotation?',
+    answer:
+      'You can contact us through our website, email us at marutitechsolutions@gmail.com, or call our support team directly to discuss your requirements and receive a quotation.',
+  },
+];
+

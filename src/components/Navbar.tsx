@@ -46,14 +46,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo on Left */}
+          {/* Logo on Left with enhanced prominence, breathing room, and polished micro-interaction */}
           <button
             id="nav-logo-btn"
             onClick={() => handleLinkClick('home')}
-            className="flex items-center text-left focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#103B28] rounded-md transition-opacity hover:opacity-90"
+            className="group flex items-center text-left py-1.5 px-2.5 sm:px-3 -ml-2 sm:-ml-3 rounded-xl transition-all duration-300 ease-out hover:bg-[#103B28]/5 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#103B28] mr-3 sm:mr-6 lg:mr-8 select-none"
             aria-label="Maruti Tech Solution Home"
           >
-            <MarutiLogo variant="horizontal" size="sm" />
+            <div className="transition-all duration-300 ease-out group-hover:scale-[1.03] group-active:scale-[0.98] flex items-center">
+              <MarutiLogo variant="horizontal" size="md" usePng={true} />
+            </div>
           </button>
 
           {/* Desktop Nav Links */}

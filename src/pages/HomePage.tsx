@@ -61,16 +61,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-7 text-left">
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#103B28]/15 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-[#D92716]" />
-                <span className="text-xs font-bold uppercase tracking-widest text-[#103B28]">
-                  MARUTI TECH SOLUTION
-                </span>
-                <span className="text-[#103B28]/30 text-xs">•</span>
-                <span className="text-[11px] text-[#0E2319]/70 font-medium">Mumbai, India</span>
-              </div>
-
               {/* Main Headline */}
               <div className="space-y-1">
                 <h1

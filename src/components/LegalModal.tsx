@@ -57,7 +57,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
               </p>
               <h4 className="text-base font-semibold text-[#103B28]">3. Direct Inquiries</h4>
               <p>
-                For any data privacy questions or requests to purge past communication records, please contact us directly at <a href="mailto:gauravinfotech5@gmail.com" className="text-[#103B28] underline">gauravinfotech5@gmail.com</a>.
+                For any data privacy questions or requests to purge past communication records, please contact us directly at <a href="mailto:Marutitechsolutions@gmail.com" className="text-[#103B28] underline">Marutitechsolutions@gmail.com</a>.
               </p>
             </>
           ) : (

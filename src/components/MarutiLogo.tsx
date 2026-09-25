@@ -5,6 +5,7 @@ interface MarutiLogoProps {
   theme?: 'dark' | 'light'; // 'dark' = for light bg (forest green logo), 'light' = for dark bg (white/silver logo)
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
+  usePng?: boolean;
 }
 
 /**
@@ -194,41 +195,105 @@ export const MarutiLogo: React.FC<MarutiLogoProps> = ({
   theme = 'dark',
   className = '',
   size = 'md',
+  usePng = false,
 }) => {
   const isLight = theme === 'light';
   const textColor = isLight ? 'text-white' : 'text-[#0A2C1C]';
   const subTextColor = isLight ? 'text-[#F7F6F0]/90' : 'text-[#0E3824]';
-  const taglineColor = isLight ? 'text-[#F7F6F0]/70' : 'text-[#1B5E3C]';
+  const taglineColor = isLight ? 'text-[#F7F6F0]/75' : 'text-[#1B5E3C]';
 
   // Standalone Mark
   if (variant === 'mark-only') {
-    const markSizes = { sm: 32, md: 44, lg: 64, xl: 88 };
-    return <MarutiMark theme={theme} size={markSizes[size]} className={className} />;
+    const markSizes = { sm: 36, md: 50, lg: 68, xl: 96 };
+    const currentSize = markSizes[size] || 50;
+    if (usePng) {
+      return (
+        <img
+          src="/logo.png"
+          alt="Maruti Tech Solutions"
+          loading="eager"
+          decoding="async"
+          referrerPolicy="no-referrer"
+          className={`object-contain shrink-0 select-none ${
+            isLight ? 'brightness-110 drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]' : ''
+          } ${className}`}
+          style={{
+            width: `${currentSize}px`,
+            height: `${currentSize}px`,
+            imageRendering: 'auto',
+          }}
+        />
+      );
+    }
+    return <MarutiMark theme={theme} size={currentSize} className={className} />;
   }
 
-  // Full Image SVG Asset
+  // Full Image Asset (using /logo.png)
   if (variant === 'image') {
-    const imgHeights = { sm: 'h-10', md: 'h-14', lg: 'h-20', xl: 'h-28' };
+    const imgHeights = { sm: 'h-12', md: 'h-16', lg: 'h-24', xl: 'h-32' };
     return (
       <img
-        src="/maruti-logo.svg"
+        src="/logo.png"
         alt="Maruti Tech Solutions Logo"
+        loading="eager"
+        decoding="async"
         referrerPolicy="no-referrer"
-        className={`${imgHeights[size]} w-auto object-contain select-none ${className}`}
+        className={`${imgHeights[size]} w-auto object-contain select-none ${
+          isLight ? 'brightness-110 drop-shadow-[0_0_12px_rgba(255,255,255,0.35)]' : ''
+        } ${className}`}
+        style={{ imageRendering: 'auto' }}
       />
     );
   }
 
   // Horizontal Layout (Standard for Header / Navbar)
   if (variant === 'horizontal') {
-    const markSize = size === 'sm' ? 42 : size === 'lg' ? 56 : 48;
+    const markSize =
+      size === 'sm' ? 44 : size === 'md' ? 52 : size === 'lg' ? 62 : 72;
+    const titleSize =
+      size === 'sm'
+        ? 'text-xl sm:text-2xl'
+        : size === 'md'
+          ? 'text-2xl sm:text-[26px]'
+          : 'text-3xl sm:text-4xl';
+    const subTitleSize =
+      size === 'sm'
+        ? 'text-[10px] sm:text-[11px]'
+        : size === 'md'
+          ? 'text-[10.5px] sm:text-[11.5px]'
+          : 'text-xs sm:text-sm';
+    const taglineSize =
+      size === 'sm'
+        ? 'text-[9px] sm:text-[10px]'
+        : size === 'md'
+          ? 'text-[9.5px] sm:text-[10.5px]'
+          : 'text-[11px] sm:text-xs';
+
     return (
-      <div className={`flex items-center gap-3 select-none text-left ${className}`}>
-        <MarutiMark theme={theme} size={markSize} />
+      <div className={`flex items-center gap-3 sm:gap-3.5 select-none text-left ${className}`}>
+        {usePng ? (
+          <img
+            src="/logo.png"
+            alt="Maruti Tech Solutions"
+            loading="eager"
+            decoding="async"
+            referrerPolicy="no-referrer"
+            className={`w-auto object-contain shrink-0 transition-transform duration-300 ${
+              isLight ? 'brightness-110 drop-shadow-[0_0_10px_rgba(255,255,255,0.35)]' : ''
+            }`}
+            style={{
+              height: `${markSize}px`,
+              width: 'auto',
+              imageRendering: 'auto',
+            }}
+          />
+        ) : (
+          <MarutiMark theme={theme} size={markSize} />
+        )}
         <div className="flex flex-col justify-center">
           {/* Main Brand Title: MARUTI */}
           <span
-            className={`text-xl sm:text-2xl font-bold tracking-wider leading-none ${textColor}`}
+            className={`${titleSize} font-bold tracking-wider leading-none ${textColor}`}
             style={{ fontFamily: "'Cinzel', 'Marcellus', 'Times New Roman', serif" }}
           >
             MARUTI
@@ -236,7 +301,7 @@ export const MarutiLogo: React.FC<MarutiLogoProps> = ({
 
           {/* Sub Brand: TECH SOLUTIONS */}
           <span
-            className={`text-[10px] sm:text-[11px] font-bold tracking-[0.24em] uppercase mt-1 leading-tight ${subTextColor}`}
+            className={`${subTitleSize} font-bold tracking-[0.24em] uppercase mt-1 leading-tight ${subTextColor}`}
             style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
           >
             TECH SOLUTIONS
@@ -244,7 +309,7 @@ export const MarutiLogo: React.FC<MarutiLogoProps> = ({
 
           {/* Official Tagline: Solution for Your All IT Issues */}
           <span
-            className={`text-[9.5px] sm:text-[10px] font-medium tracking-wide mt-0.5 leading-tight ${taglineColor}`}
+            className={`${taglineSize} font-medium tracking-wide mt-0.5 leading-tight ${taglineColor}`}
             style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
           >
             Solution for Your All IT Issues
@@ -258,16 +323,16 @@ export const MarutiLogo: React.FC<MarutiLogoProps> = ({
   if (variant === 'compact') {
     return (
       <div className={`flex items-center gap-2.5 select-none text-left ${className}`}>
-        <MarutiMark theme={theme} size={36} />
+        <MarutiMark theme={theme} size={40} />
         <div className="flex flex-col">
           <span
-            className={`text-lg font-bold tracking-wider leading-none ${textColor}`}
+            className={`text-lg sm:text-xl font-bold tracking-wider leading-none ${textColor}`}
             style={{ fontFamily: "'Cinzel', 'Marcellus', serif" }}
           >
             MARUTI
           </span>
           <span
-            className={`text-[9px] font-bold tracking-[0.22em] uppercase mt-0.5 leading-tight ${subTextColor}`}
+            className={`text-[9px] sm:text-[10px] font-bold tracking-[0.22em] uppercase mt-0.5 leading-tight ${subTextColor}`}
           >
             TECH SOLUTIONS
           </span>
@@ -281,7 +346,7 @@ export const MarutiLogo: React.FC<MarutiLogoProps> = ({
     <div className={`inline-flex flex-col items-center text-center select-none ${className}`}>
       <MarutiMark
         theme={theme}
-        size={size === 'sm' ? 56 : size === 'lg' ? 96 : size === 'xl' ? 120 : 76}
+        size={size === 'sm' ? 60 : size === 'lg' ? 104 : size === 'xl' ? 128 : 84}
       />
 
       {/* MARUTI */}
