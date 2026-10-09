@@ -209,7 +209,7 @@ export const MarutiLogo: React.FC<MarutiLogoProps> = ({
     if (usePng) {
       return (
         <img
-          src="/logo.png"
+          src="/NewLogo.png"
           alt="Maruti Tech Solutions"
           loading="eager"
           decoding="async"
@@ -233,7 +233,7 @@ export const MarutiLogo: React.FC<MarutiLogoProps> = ({
     const imgHeights = { sm: 'h-12', md: 'h-16', lg: 'h-24', xl: 'h-32' };
     return (
       <img
-        src="/logo.png"
+        src="/NewLogo.png"
         alt="Maruti Tech Solutions Logo"
         loading="eager"
         decoding="async"
@@ -273,7 +273,7 @@ export const MarutiLogo: React.FC<MarutiLogoProps> = ({
       <div className={`flex items-center gap-3 sm:gap-3.5 select-none text-left ${className}`}>
         {usePng ? (
           <img
-            src="/logo.png"
+            src="/NewLogo.png"
             alt="Maruti Tech Solutions"
             loading="eager"
             decoding="async"
