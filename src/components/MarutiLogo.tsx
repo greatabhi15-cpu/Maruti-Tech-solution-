@@ -204,12 +204,12 @@ export const MarutiLogo: React.FC<MarutiLogoProps> = ({
 
   // Standalone Mark
   if (variant === 'mark-only') {
-    const markSizes = { sm: 36, md: 50, lg: 68, xl: 96 };
-    const currentSize = markSizes[size] || 50;
+    const markSizes = { sm: 45, md: 64, lg: 86, xl: 122 };
+    const currentSize = markSizes[size] || 64;
     if (usePng) {
       return (
         <img
-          src="/NewLogo.png"
+          src="/newlogo.png"
           alt="Maruti Tech Solutions"
           loading="eager"
           decoding="async"
@@ -230,10 +230,10 @@ export const MarutiLogo: React.FC<MarutiLogoProps> = ({
 
   // Full Image Asset (using /logo.png)
   if (variant === 'image') {
-    const imgHeights = { sm: 'h-12', md: 'h-16', lg: 'h-24', xl: 'h-32' };
+    const imgHeights = { sm: 'h-14', md: 'h-20', lg: 'h-28', xl: 'h-36' };
     return (
       <img
-        src="/NewLogo.png"
+        src="/newlogo.png"
         alt="Maruti Tech Solutions Logo"
         loading="eager"
         decoding="async"
@@ -249,31 +249,31 @@ export const MarutiLogo: React.FC<MarutiLogoProps> = ({
   // Horizontal Layout (Standard for Header / Navbar)
   if (variant === 'horizontal') {
     const markSize =
-      size === 'sm' ? 44 : size === 'md' ? 52 : size === 'lg' ? 62 : 72;
+      size === 'sm' ? 56 : size === 'md' ? 66 : size === 'lg' ? 78 : 90;
     const titleSize =
       size === 'sm'
-        ? 'text-xl sm:text-2xl'
+        ? 'text-base sm:text-[19px]'
         : size === 'md'
-          ? 'text-2xl sm:text-[26px]'
-          : 'text-3xl sm:text-4xl';
+          ? 'text-[19px] sm:text-[21px]'
+          : 'text-2xl sm:text-[29px]';
     const subTitleSize =
       size === 'sm'
-        ? 'text-[10px] sm:text-[11px]'
+        ? 'text-[8px] sm:text-[9px]'
         : size === 'md'
-          ? 'text-[10.5px] sm:text-[11.5px]'
-          : 'text-xs sm:text-sm';
+          ? 'text-[8.5px] sm:text-[9.5px]'
+          : 'text-[10px] sm:text-[11.5px]';
     const taglineSize =
       size === 'sm'
-        ? 'text-[9px] sm:text-[10px]'
+        ? 'text-[7.5px] sm:text-[8px]'
         : size === 'md'
-          ? 'text-[9.5px] sm:text-[10.5px]'
-          : 'text-[11px] sm:text-xs';
+          ? 'text-[8px] sm:text-[8.5px]'
+          : 'text-[9px] sm:text-[10px]';
 
     return (
       <div className={`flex items-center gap-3 sm:gap-3.5 select-none text-left ${className}`}>
         {usePng ? (
           <img
-            src="/NewLogo.png"
+            src="/newlogo.png"
             alt="Maruti Tech Solutions"
             loading="eager"
             decoding="async"

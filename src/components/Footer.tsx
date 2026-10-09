@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { PageId } from '../types';
-import { MarutiLogo } from './MarutiLogo';
 import { COMPANY_DETAILS } from '../data/content';
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Youtube, ArrowUpRight } from 'lucide-react';
 import { LegalModal } from './LegalModal';
@@ -33,21 +32,43 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-white/10">
-            {/* Left Column (Brand) */}
-            <div className="md:col-span-5 flex flex-col items-start text-left">
-              <div className="mb-4">
-                <MarutiLogo variant="horizontal" theme="light" size="md" />
-              </div>
+           {/* Left Column (Brand) */}
+<div className="md:col-span-5 flex flex-col items-start text-left">
+  {/* Logo + Text side by side */}
+  <div className="flex items-center gap-4">
+    <img
+      src="/foot-logo.png"
+      alt="Maruti Tech Solution"
+      className="h-14 sm:h-16 w-auto object-contain shrink-0"
+    />
 
-              <p className="text-sm sm:text-base text-[#F7F6F0]/80 leading-relaxed max-w-sm mt-3 font-normal">
-                Professional computer, hardware, software and networking solutions for homes and businesses.
-              </p>
+    <div className="flex flex-col">
+      <h2
+        className="text-2xl sm:text-3xl font-bold tracking-wider leading-none text-[#F7F6F0]"
+        style={{ fontFamily: "'Cinzel', 'Marcellus', 'Times New Roman', serif" }}
+      >
+        MARUTI
+      </h2>
 
-              <div className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#F7F6F0]/60">
-                <span className="w-2 h-2 rounded-full bg-[#25D366]" />
-                <span>Mumbai Tech Support Center</span>
-              </div>
-            </div>
+      <p className="mt-1.5 text-xs sm:text-sm font-bold tracking-[0.22em] text-[#F7F6F0] uppercase">
+        TECH SOLUTIONS
+      </p>
+
+      <p className="mt-1 text-xs sm:text-sm text-[#F7F6F0]/80">
+        Solution for Your All IT Issues
+      </p>
+    </div>
+  </div>
+
+  <p className="text-sm sm:text-base text-[#F7F6F0]/80 leading-relaxed max-w-sm mt-5 font-normal">
+    Professional computer, hardware, software and networking solutions for homes and businesses.
+  </p>
+
+  <div className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#F7F6F0]/60">
+    <span className="w-2 h-2 rounded-full bg-[#25D366]" />
+    <span>Mumbai Tech Support Center</span>
+  </div>
+</div>
 
             {/* Middle Column (Quick Links) */}
             <div className="md:col-span-3">
